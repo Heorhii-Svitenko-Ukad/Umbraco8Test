@@ -5,14 +5,6 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco8Test", "Umbraco8Test\Umbraco8Test.csproj", "{AE1B7D7B-948B-40DC-BD51-4B424BB0F091}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoToUmbracoConverter", "MongoToUmbracoConverter", "{BA7744DA-E95A-4B59-BFA4-E34DB90D9CFB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoToUmbracoConverter.ConsoleApp", "MongoToUmbracoConverter.ConsoleApp\MongoToUmbracoConverter.ConsoleApp.csproj", "{3969925D-7888-4E32-9FD8-2E8BF54B4F86}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoToUmbracoConverter.DbLogic", "MongoToUmbracoConverter.DbLogic\MongoToUmbracoConverter.DbLogic.csproj", "{2728C916-2CB5-41C7-B374-9DF082978798}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoToUmbracoConverter.Services", "MongoToUmbracoConverter.Services\MongoToUmbracoConverter.Services.csproj", "{1839969B-43CC-48F1-860B-ACC9AE9EB5F8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,26 +15,9 @@ Global
 		{AE1B7D7B-948B-40DC-BD51-4B424BB0F091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE1B7D7B-948B-40DC-BD51-4B424BB0F091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE1B7D7B-948B-40DC-BD51-4B424BB0F091}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3969925D-7888-4E32-9FD8-2E8BF54B4F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3969925D-7888-4E32-9FD8-2E8BF54B4F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3969925D-7888-4E32-9FD8-2E8BF54B4F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3969925D-7888-4E32-9FD8-2E8BF54B4F86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2728C916-2CB5-41C7-B374-9DF082978798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2728C916-2CB5-41C7-B374-9DF082978798}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2728C916-2CB5-41C7-B374-9DF082978798}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2728C916-2CB5-41C7-B374-9DF082978798}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1839969B-43CC-48F1-860B-ACC9AE9EB5F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1839969B-43CC-48F1-860B-ACC9AE9EB5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1839969B-43CC-48F1-860B-ACC9AE9EB5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1839969B-43CC-48F1-860B-ACC9AE9EB5F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{3969925D-7888-4E32-9FD8-2E8BF54B4F86} = {BA7744DA-E95A-4B59-BFA4-E34DB90D9CFB}
-		{2728C916-2CB5-41C7-B374-9DF082978798} = {BA7744DA-E95A-4B59-BFA4-E34DB90D9CFB}
-		{1839969B-43CC-48F1-860B-ACC9AE9EB5F8} = {BA7744DA-E95A-4B59-BFA4-E34DB90D9CFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C651E2D-1B64-4BE5-BF13-446DD68C16EE}
