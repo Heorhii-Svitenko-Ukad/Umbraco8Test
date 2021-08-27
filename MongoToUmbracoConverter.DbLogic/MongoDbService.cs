@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Linq;
@@ -9,13 +10,13 @@ namespace MongoToUmbracoConverter.DbLogic
     {
         private readonly IMongoDatabase _db;
 
-        public MongoDbService(MongoDbSettings settings)
+        public MongoDbService(IOptions<MongoDbOptions> options)
         {
-            MongoClient client = new();
+            var dbOptions = options.Value;
+            MongoClient client = new(dbOptions.ConnectionString);
 
-            ValidateDbName(client, settings.DbName);
-
-            _db = client.GetDatabase(settings.DbName);
+            ValidateDbName(client, dbOptions.DbName);
+            _db = client.GetDatabase(dbOptions.DbName);
         }
 
         public IMongoCollection<BsonDocument> GetCollection(string collectionName)
@@ -33,7 +34,7 @@ namespace MongoToUmbracoConverter.DbLogic
 
             if (!names.Contains(collectionName))
             {
-                throw new ArgumentException(collectionName + " does not exist");
+                throw new ArgumentException("Collection " + collectionName + " does not exist");
             }
         }
 
@@ -45,7 +46,7 @@ namespace MongoToUmbracoConverter.DbLogic
 
             if (!names.Contains(dbName))
             {
-                throw new ArgumentException(dbName + " does not exist");
+                throw new ArgumentException("DB " + dbName + " does not exist");
             }
         }
     }

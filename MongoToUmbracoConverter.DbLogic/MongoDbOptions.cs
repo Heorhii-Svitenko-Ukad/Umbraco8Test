@@ -1,6 +1,6 @@
 ﻿namespace MongoToUmbracoConverter.DbLogic
 {
-    public class MongoDbSettings
+    public class MongoDbOptions
     {
         public string ConnectionString { get; set; }
         public string DbName { get; set; }
