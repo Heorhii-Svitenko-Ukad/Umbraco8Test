@@ -15,9 +15,9 @@ namespace Umbraco8Test.Services
             _memberTypeService = memberTypeService;
         }
 
-        public int UpsertMember(DbMember member)
+        public void UpsertMember(DbMember member)
         {
-            var savedMember = _memberService.GetByKey(member.UserId);
+            var savedMember = _memberService.GetByEmail(member.Email);
 
             if (savedMember == null)
             {
@@ -33,8 +33,6 @@ namespace Umbraco8Test.Services
             savedMember.Email = member.Email;
 
             _memberService.Save(savedMember);
-
-            return savedMember.Id;
         }
     }
 }

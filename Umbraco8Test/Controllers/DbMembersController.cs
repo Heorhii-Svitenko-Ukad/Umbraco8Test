@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Data.SqlClient;
+using System.Linq;
+using System.Web.Http;
 using Umbraco.Web.WebApi;
 using Umbraco8Test.Models;
 using Umbraco8Test.Services;
@@ -18,9 +20,24 @@ namespace Umbraco8Test.Controllers
         public IHttpActionResult UpsertMember(DbMember member)
         {
             if (!ModelState.IsValid)
-                return BadRequest();
+            {
+                var errors = ModelState.Values
+                    .SelectMany(o => o.Errors)
+                    .Select(o => o.ErrorMessage);
 
-            return Ok(_memberService.UpsertMember(member));
+                return BadRequest(string.Join("\n", errors));
+            }
+
+            try
+            {
+                _memberService.UpsertMember(member);
+
+                return Ok();
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
