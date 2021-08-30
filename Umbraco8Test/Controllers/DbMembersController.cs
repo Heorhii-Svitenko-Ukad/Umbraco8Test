@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using Umbraco.Core.Services;
+﻿using System.Web.Http;
 using Umbraco.Web.WebApi;
 using Umbraco8Test.Models;
 using Umbraco8Test.Services;
@@ -21,9 +15,12 @@ namespace Umbraco8Test.Controllers
         }
 
         [HttpPut]
-        public int UpsertMember(DbMember member)
+        public IHttpActionResult UpsertMember(DbMember member)
         {
-            return _memberService.UpsertMember(member);
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            return Ok(_memberService.UpsertMember(member));
         }
     }
 }
