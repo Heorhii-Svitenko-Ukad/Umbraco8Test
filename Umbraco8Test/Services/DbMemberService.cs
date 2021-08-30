@@ -29,8 +29,8 @@ namespace Umbraco8Test.Services
 
             savedMember.Key = member.UserId;
             savedMember.Name = member.Name;
-            savedMember.Username = member.Email;
             savedMember.Email = member.Email;
+            savedMember.CreateDate = member.Created;
 
             _memberService.Save(savedMember);
         }

@@ -23,7 +23,13 @@ namespace Umbraco8Test.Controllers
             {
                 var errors = ModelState.Values
                     .SelectMany(o => o.Errors)
-                    .Select(o => o.ErrorMessage);
+                    .Select(o => o.ErrorMessage)
+                    .Union(
+                        ModelState.Values
+                        .SelectMany(o => o.Errors)
+                        .Select(o => o.Exception?.Message)
+                    )
+                    .Where(o => !string.IsNullOrEmpty(o));
 
                 return BadRequest(string.Join("\n", errors));
             }
