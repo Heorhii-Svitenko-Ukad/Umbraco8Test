@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Http;
+using Umbraco.Core.Logging;
 using Umbraco.Web.WebApi;
 using Umbraco8Test.Models;
 using Umbraco8Test.Services;
@@ -31,17 +32,24 @@ namespace Umbraco8Test.Controllers
                     )
                     .Where(o => !string.IsNullOrEmpty(o));
 
-                return BadRequest(string.Join("\n", errors));
+                var errorString = string.Join("\n", errors);
+                Logger.Info<DbMembersController>("Discarding invalid request {Error}", errorString);
+
+                return BadRequest(errorString);
             }
 
             try
             {
                 _memberService.UpsertMember(member);
 
+                Logger.Info<DbMemberService>("Upserted member {@Member}", member);
+
                 return Ok();
             }
             catch (SqlException ex)
             {
+                Logger.Warn<DbMembersController>(ex, "Upserting member {@Member} failed", member);
+
                 return BadRequest(ex.Message);
             }
         }
