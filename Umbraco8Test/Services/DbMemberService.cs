@@ -32,6 +32,9 @@ namespace Umbraco8Test.Services
             savedMember.Email = member.Email;
             savedMember.CreateDate = member.Created;
 
+            // todo other properties
+            // todo add IsMigratedUser to a umbraco member type to know if a user was migrated
+
             _memberService.Save(savedMember);
         }
     }
