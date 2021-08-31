@@ -8,7 +8,7 @@ using Umbraco8Test.Services;
 
 namespace Umbraco8Test.Controllers
 {
-    public class DbMembersController : UmbracoApiController
+    public class DbMembersController : UmbracoAuthorizedApiController
     {
         private readonly DbMemberService _memberService;
 
